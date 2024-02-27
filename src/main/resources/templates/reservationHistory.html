@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout/masterLayout :: layout(~{::main})">
+<body>
+
+<main role="main">
+    <section class="container-fluid history-section d-flex justify-content-center align-items-center">
+        <div class="container text-white w-100 mt-5 mt-md-0">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Room</th>
+                    <th>Reservation Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="res : ${reservations}">
+                    <td th:text="${res.getId()}"></td>
+                    <td th:text="${res.guest.firstName}"></td>
+                    <td th:text="${res.guest.lastName}"></td>
+                    <td th:text="${res.room.name}"></td>
+                    <td th:text="${res.reservationDate}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+</body>
+</html>
